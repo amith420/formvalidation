@@ -8,9 +8,9 @@
 </head>
 <body>
 
-    <div style="border: 1px solid black; width: 300px; margin-left: 30%;background-image: url(beige.jpg);">
+    <div style="border: 1px solid black; width: 300px; margin-left: 30%;background-image: url(green.jpg);">
         <h2 style="padding-left: 12px;">School Registeration Form</h2>
-        <form  name="myform" onsubmit="return (validateName() && validateClass() && validateGender() && validateSection() && validateMonth() && validateDate() && validateYear() )">
+        <form  name="myform" onsubmit="return (validateName() && validateClass() && validateGender() && validateSection() && validateMonth() && validateDate() && validateYear() && handleSubmit() )">
             <label>Name</label>
             <input type="text" name="name" id="name" placeholder="enter name"><br><br>
             <label>Class</label>
@@ -19,14 +19,14 @@
             <input type="radio" value="male" name="gender">Male
             <input type="radio" value="female" name="gender">Female<br><br>
             <label>Section</label>
-            <select id="sec">
+            <select name="section" id="sec">
                 <option value="" name="section">Select</option>
                 <option value="a" name="section">Section A</option>
                 <option value="b" name="section">Section B</option>
                 <option value="c" name="section">Section C</option>
             </select><br><br>
             <label>D.O.B</label>
-            <select id="month">
+            <select name="month" id="month">
                 <option value="">Month</option>
                 <option>January</option>
                 <option>February</option>
@@ -41,7 +41,7 @@
                 <option>November</option>
                 <option>December</option>
             </select>
-            <select id="date">
+            <select name="date" id="date">
                 <option value="">Date</option>
                 <option>1</option>
                 <option>2</option>
@@ -75,7 +75,7 @@
                 <option>30</option>
                 <option>31</option>
             </select>
-            <select id="year">
+            <select name="year" id="year">
                 <option value="">Year</option>
                 <option>2000</option>
                 <option>2001</option>
@@ -106,20 +106,22 @@
    
 
     <script>
+        
         function validateName(){
             var user= document.myform.name.value
             
             if(user=='' || user==null){
                 alert("Please enter the name")
-            }
-            return true
+            }return true
+            
+            
         }
         function validateClass(){
         var stnd= document.myform.stnd.value
             if(stnd==''|| stnd==null){
                 alert("Please enter the class")
-            }
-            return true
+            }return true
+            
             
         }
         function validateGender(){
@@ -130,28 +132,28 @@
            
         }
         function validateSection(){
-            var x=document.getElementById("sec")
-            var x1=x.options[x.selectedIndex].value
-            var x2=x.options[x.selectedIndex].text
-            if(x1==0){
+            var y=document.getElementById("sec")
+            var y1=x.options[x.selectedIndex].value
+            var y2=x.options[x.selectedIndex].text
+            if(y1==0){
                 alert("Please select a section")
             }return true
             
         }
         function validateMonth(){
-            var x=document.getElementById("month")
-            var x1=x.options[x.selectedIndex].value
-            var x2=x.options[x.selectedIndex].text
-            if(x1==0){
+            var z=document.getElementById("month")
+            var z1=x.options[x.selectedIndex].value
+            var z2=x.options[x.selectedIndex].text
+            if(z1==0){
                 alert("PLease select a month")
             }return true
             
         }
         function validateDate(){
-            var x=document.getElementById("date")
-            var x1=x.options[x.selectedIndex].value
-            var x2=x.options[x.selectedIndex].text
-            if(x1==0){
+            var a=document.getElementById("date")
+            var a1=x.options[x.selectedIndex].value
+            var a2=x.options[x.selectedIndex].text
+            if(a1==0){
                 alert("PLease select a date")
             }return true
             
@@ -165,7 +167,31 @@
             }return true
             
         }
-        
+        let handleSubmit = (event) => {
+            event.preventDefault();
+            let name = document.forms["myform"]["user"].value.trim();
+            let stnd = document.forms["myform"]["stnd"].value.trim();
+            let gender = document.forms["myform"]["gen"].value;
+            let section = document.forms["myform"]["x1"].value.trim();
+            let month = document.forms["myform"]["y1"].value.trim();
+            let date = document.forms["myform"]["z1"].value.trim();
+            let year = document.forms["myform"]["a1"].value.trim();
+            if(name && stnd && gender && section && month && date && year){
+                alert(
+                    "Name: " +
+                    name +
+                    "\nClass: " +
+                    stnd +
+                    "\nGender: " +
+                    gender +
+                    "\nSection: " +
+                    section +
+                    "\nD.O.B: " +
+                    month + date + year 
+                )
+            }
+        }
+          
     </script>
 </body>
 </html>
