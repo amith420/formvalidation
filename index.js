@@ -1,4 +1,4 @@
-let handleSubmit = (event) => {
+let resultSet = (event) => {
     event.preventDefault();
     let name = document.forms["form"]["name"].value.trim();
     let gender = document.forms["form"]["gender"].value;
