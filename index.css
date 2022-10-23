@@ -51,8 +51,8 @@
   
   .error-message {
     position: absolute;
-    right: 0;
-    bottom: -15px;
+    right: 75%;
+    bottom: 5px;
     color: #db0707;
     font-size: 15px;
     visibility: hidden;

@@ -2,27 +2,23 @@ let handleSubmit = (event) => {
     event.preventDefault();
     let name = document.forms["form"]["name"].value.trim();
     let gender = document.forms["form"]["gender"].value;
-    let studentClass = document.forms["form"]["class"].value;
-    let division = document.forms["form"]["division"].value;
+    let stnd = document.forms["form"]["stnd"].value;
+    let section = document.forms["form"]["section"].value;
     let dob = document.forms["form"]["dob"].value;
-    if (name && gender && studentClass && division && dob) {
-      alert(
-        "Name: " +
-          name +
-          "\nGender: " +
-          gender +
-          "\nClass: " +
-          studentClass +
-          "\nDivision: " +
-          division +
-          "\nDob: " +
-          dob
-      );
+    if (name && gender && stnd && section && dob) {
+      document.writeln(
+        "Name: " + name + "\nGender: " + gender + "\nClass: " + stnd + "\nSection: " + section + "\nD.O.B: " + dob);
       document.forms['form'].reset();
     }
     name
       ? document.getElementById("name").classList.remove("error")
       : document.getElementById("name").classList.add("error");
+    stnd
+      ? document.getElementById("stnd").classList.remove("error")
+      : document.getElementById("stnd").classList.add("error");
+    section
+      ? document.getElementById("section").classList.remove("error")
+      : document.getElementById("section").classList.add("error");
     gender
       ? document
           .getElementById("error-message")
@@ -30,12 +26,6 @@ let handleSubmit = (event) => {
       : document
           .getElementById("error-message")
           .classList.add("error-message-active");
-    studentClass
-      ? document.getElementById("class").classList.remove("error")
-      : document.getElementById("class").classList.add("error");
-    division
-      ? document.getElementById("division").classList.remove("error")
-      : document.getElementById("division").classList.add("error");
     dob
       ? document.getElementById("dob").classList.remove("error")
       : document.getElementById("dob").classList.add("error");
