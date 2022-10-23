@@ -23,12 +23,11 @@
   }
   
   .form {
-    
-    display: grid;
-    grid-template-columns: 1fr 3fr;
     align-items: center;
     row-gap: 20px;
     padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
   }
   
   .form input:not(:last-child) {
@@ -62,22 +61,22 @@
     visibility: visible;
   }
   
-  .selection-input {
-    padding: 5px;
+  .section-input {
     border: 1px solid #555;
     border-radius: 3px;
+    padding: 5px;
   }
   
   .submit-button {
-    background-color: #10963d;
-    color: #fff;
-    padding: 8px 12px;
     border: 1px solid #10963d;
     border-radius: 4px;
     cursor: pointer;
+    padding: 8px 12px;
+    grid-column: 2 / -1;
     font-size: 15px;
     font-weight: 500;
-    grid-column: 2 / -1;
+    background-color: #10963d;
+    color: #fff;
     width: fit-content;
     margin-left: 25%;
   }
