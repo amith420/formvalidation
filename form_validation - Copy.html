@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<body>
+    <div style="border: 1px solid black; width: 500px">
+        <form name="myform" action="print_info.html" onsubmit="return (validateName() && validateClass() && validateGender() && validateSection() && validateMonth() && validateDate() && validateYear() )">
+            <label>Name</label>
+            <input type="text" name="name" id="name" placeholder="enter name"><br><br>
+            <label>Class</label>
+            <input type="number" name="stnd" min="1" max="12" placeholder="enter class" style="width: 80px"><br><br>
+            <label>Gender</label>
+            <input type="radio" value="male" name="gender">Male
+            <input type="radio" value="female" name="gender">Female<br><br>
+            <label>Section</label>
+            <select id="sec">
+                <option value="" name="section">Select</option>
+                <option value="a" name="section">Section A</option>
+                <option value="b" name="section">Section B</option>
+                <option value="c" name="section">Section C</option>
+            </select><br><br>
+            <label>D.O.B</label>
+            <select id="month">
+                <option value="">Month</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+            </select>
+            <select id="date">
+                <option value="">Date</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+            </select>
+            <select id="year">
+                <option value="">Year</option>
+                <option>2000</option>
+                <option>2001</option>
+                <option>2002</option>
+                <option>2003</option>
+                <option>2004</option>
+                <option>2005</option>
+                <option>2006</option>
+                <option>2007</option>
+                <option>2008</option>
+                <option>2009</option>
+                <option>2010</option>
+                <option>2011</option>
+                <option>2012</option>
+                <option>2013</option>
+                <option>2014</option>
+                <option>2015</option>
+                <option>2016</option>
+                <option>2017</option>
+                <option>2018</option>
+                <option>2019</option>
+                <option>2020</option>
+            </select><br><br>
+            <button type="submit">Submit</button>
+            <button>Cancel</button>
+        </form>
+    </div>
+
+   
+
+    <script>
+        function validateName(){
+            var user= document.myform.name.value
+            
+            if(user=='' || user==null){
+                alert("Please enter the name")
+            }else{
+                localStorage.setItem("textvalue",user);
+                return false
+            }
+            
+        }
+        function validateClass(){
+        var stnd= document.myform.stnd.value
+            if(stnd==''|| stnd==null){
+                alert("Please enter the class")
+            }else{
+                return true
+            }
+            
+        }
+        function validateGender(){
+           var gen=document.querySelector('input[name="gender"]:checked')
+           if(gen == null){
+            alert("Please select a gender")
+           }
+           return true
+           
+        }
+        function validateSection(){
+            var x=document.getElementById("sec")
+            var x1=x.options[x.selectedIndex].value
+            var x2=x.options[x.selectedIndex].text
+            if(x1==0){
+                alert("Please select a section")
+            }
+            return true
+            
+        }
+        function validateMonth(){
+            var x=document.getElementById("month")
+            var x1=x.options[x.selectedIndex].value
+            var x2=x.options[x.selectedIndex].text
+            if(x1==0){
+                alert("PLease select a month")
+            }
+            return true
+            
+        }
+        function validateDate(){
+            var x=document.getElementById("date")
+            var x1=x.options[x.selectedIndex].value
+            var x2=x.options[x.selectedIndex].text
+            if(x1==0){
+                alert("PLease select a date")
+            }
+            return true
+            
+        }
+        function validateYear(){
+            var x=document.getElementById("year")
+            var x1=x.options[x.selectedIndex].value
+            var x2=x.options[x.selectedIndex].text
+            if(x1==0){
+                alert("PLease select a year")
+            }
+            return true
+            
+        }
+        
+    </script>
+</body>
+</html>
